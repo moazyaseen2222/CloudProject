@@ -9,7 +9,7 @@ class AddPost extends StatelessWidget {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        centerTitle: false,
         backgroundColor: Colors.green.shade400,
         title: Text(
           'اضافة مقالة',

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:palliative_care/ui/LoginScreen.dart';
+import 'package:palliative_care/ui/SignUp.dart';
+import 'package:palliative_care/ui/Who.dart';
 import 'package:palliative_care/ui/add_post.dart';
 import 'package:palliative_care/ui/categories.dart';
 import 'package:palliative_care/ui/chat.dart';
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NotificationScreen(),
+      home: Who(),
     );
   }
 }

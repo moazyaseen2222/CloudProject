@@ -5,7 +5,7 @@ class UserModel{
  late String image;
  late String phone;
  late String address;
- late DateTime birthDate;
+ late String birthDate;
  late String interest;
  late bool notification;
 
@@ -18,6 +18,8 @@ class UserModel{
     required this.phone,
     required this.address,
     required this.birthDate,
+    required this.interest,
+    required this.notification,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -27,22 +29,22 @@ class UserModel{
     image = json['image'];
     phone = json['phone'];
     address = json['address'];
-    birthDate = DateTime.parse(json['birthDate']);
+    birthDate = json['birthDate'];
     interest = json['interest'];
     notification = json['notification'];
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'email': email,
-      'image': image,
-      'phone': phone,
-      'address': address,
-      'birthDate': birthDate,
-      'interest': interest,
-      'notification': notification,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['image'] = image;
+    data['phone'] = phone;
+    data['address'] = address;
+    data['birthDate'] = birthDate;
+    data['interest'] = interest;
+    data['notification'] = notification;
+    return data;
   }
 }

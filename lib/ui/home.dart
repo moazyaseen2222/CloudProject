@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:palliative_care/ui/Who.dart';
 
 import '../widgets/commentForm.dart';
 import '../widgets/readMore.dart';
@@ -31,13 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('الرعاية الصحية'),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade400,
-      ),
-      body: SingleChildScrollView(
+    return  SingleChildScrollView(
         child: Stack(
           children: [
             Column(
@@ -219,51 +212,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
           ],
         ),
-      ),
-      /// Testing ...
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.green[400],
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 6,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-                onPressed: () => Navigator.pushNamed(context,'/who' ),
-                icon: const Icon(
-                  Icons.home,
-                  color: Colors.white,
-                )),
-            IconButton(
-                onPressed: () => Navigator.pushNamed(context,'/profile' ),
-                icon: const Icon(Icons.person),
-                color: Colors.white),
 
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context,'/notifications' ),
-              icon: const Icon(Icons.notifications_none),
-              color: Colors.white,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            // IconButton(
-            //     onPressed: () => print('Moveies'),
-            //     icon: Icon(
-            //       Icons.video_library,
-            //       color: Colors.white,
-            //     ),
-            // )
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => print('Add The Service..'),
-        backgroundColor: Colors.green[400],
-        child: const Icon(Icons.add),
-        tooltip: 'Add the service',
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      /// Testing ...
+
+
     );
   }
 }

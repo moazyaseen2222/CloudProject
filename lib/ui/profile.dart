@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DoctorProfilePage extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   final String name;
   final String specialty;
   final String email;
   final String address;
   final String phoneNumber;
 
-  const DoctorProfilePage({
+  const ProfilePage({
     required this.name,
     required this.specialty,
     required this.email,
@@ -20,13 +20,7 @@ class DoctorProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('صفحة الطبيب'),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade400,
-      ),
-      body: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 20),
@@ -78,7 +72,7 @@ class DoctorProfilePage extends StatelessWidget {
             title: Text(':  $phoneNumber',style: GoogleFonts.aBeeZee(fontSize: 20)),
           ),
         ],
-      ),
+
     );
   }
 }

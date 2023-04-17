@@ -8,16 +8,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green.shade400,
-        title: Text(
-          'قائمة المواضيع',
-          style: GoogleFonts.aBeeZee(color: Colors.white,fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+    return  SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -66,7 +57,7 @@ class Categories extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

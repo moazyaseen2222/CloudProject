@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -10,15 +12,9 @@ class AddPost extends StatefulWidget {
 }
 
 class _AddPostState extends State<AddPost> {
-  Future<void> _getImage(ImageSource source) async {
-    final pickedImage = await ImagePicker().getImage(source: source);
-
-    // Do something with the picked image file
-  }
 
 
-
-  final List<String> _dropdownItems = [
+  final List<String> _items = [
     'السكري',
     'القلب',
     'الصحة النفسية',
@@ -39,179 +35,116 @@ class _AddPostState extends State<AddPost> {
             centerTitle: true,
             backgroundColor: Colors.green.shade400),
         body: SingleChildScrollView(
-          child: Center(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
-                'أدخل بيانات المقالة',
-                style: GoogleFonts.aBeeZee(
-                    fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              const SizedBox(height: 20),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      textDirection: TextDirection.rtl,
-                      textAlign: TextAlign.right,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Image.network(
+                      'https://img.freepik.com/premium-vector/doctor-icon-avatar-white_136162-58.jpg?w=2000'),
+                  title: const Text("Mohanned Obaid",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+                  subtitle: Text('مستشار صحي',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Card(
+                  elevation: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      maxLines: 10,
                       decoration: const InputDecoration(
-                        labelText: 'العنوان',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black,
+                        border: InputBorder.none,
+                        hintText: 'What\'s on your Mind?',
+                        hintStyle: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                _selectedImage != null ?  Container(
+                  child:
+                       Image.file(
+                    File(_selectedImage!.path),
+                    fit: BoxFit.cover,
+                  ),
+                ) : Container(),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                            onPressed:() async{
+                             await _getImage();
+                            },
+                            child: Image.asset('images/icons/picture.png',width: 30,height: 30,),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                        ),
-                      ),
-                      // validator: (value) {
-                      //   if (value!.isEmpty) {
-                      //     return 'Please enter your name';
-                      //   }
-                      //   return null;
-                      // },
-                    ),
-
-                    /////////////
-                    const SizedBox(height: 20),
-                    TextFormField(
-                      textDirection: TextDirection.rtl,
-                      textAlign: TextAlign.right,
-                      maxLines: 5,
-                      decoration: const InputDecoration(
-                        labelText: 'الموضوع',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black, width: 2),
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                        ),
-                      ),
-                      // validator: (value) {
-                      // if (value!.isEmpty) {
-                      // return 'Please enter your email';
-                      // }
-                      // return null;
-                      // },
-                    ),
-                    const SizedBox(height: 20),
-
-                    ///
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        DropdownButton<String>(
+                      const Text('Category: '),
+                      Center(
+                        child: DropdownButton<String>(
+                          borderRadius: BorderRadius.circular(10),
+                          elevation: 16,
+                        //  isExpanded: true,
+                          hint: const Text('Select Category'),
                           value: _selectedItem,
-                          onChanged: (String? selectedItem) {
+                          onChanged: (String? newValue) {
                             setState(() {
-                              _selectedItem = selectedItem!;
+                              _selectedItem = newValue!;
                             });
                           },
-                          items: _dropdownItems
-                              .map((item) => DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Text(
-                                      item,
-                                      style: GoogleFonts.aBeeZee(fontSize: 18),
-                                    ),
-                                  ))
-                              .toList(),
+                          items: _items.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
                         ),
-                        const SizedBox(width: 20),
-                        Text(
-                          ' : الفئة  ',
-                          style: GoogleFonts.aBeeZee(fontSize: 20),
-                        ),
-                        const SizedBox(width: 20),
-                        const SizedBox(height: 16.0),
-                        // Text(
-                        //   _selectedItem != null ? 'الفئة :  $_selectedItem' : '',
-                        //   style: TextStyle(fontSize: 18.0),
-                        // ),
-                      ],
-                    ),
-
-                    ///
-                    ///
-                    ///
-                    const SizedBox(height: 16.0),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () async {
-                              //_getImage(ImageSource.camera);
-                              final pickedFile = await ImagePicker()
-                                  .getImage(source: ImageSource.camera);
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green.shade400),
-                            child: Text(
-                              'التقاط من الكاميرا',
-                              style: GoogleFonts.aBeeZee(fontSize: 17),
-                            ),
-                          ),
-                          const SizedBox(width: 18),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green.shade400),
-                            onPressed: () {
-                              _getImage(ImageSource.gallery);
-                            },
-                            child: Text(
-                              'اختيار من المعرض',
-                              style: GoogleFonts.aBeeZee(fontSize: 17),
-                            ),
-                          ),
-                          Text(' : الصورة ',
-                              style: GoogleFonts.aBeeZee(fontSize: 20)),
-                        ],
                       ),
-                    ),
 
-                    const SizedBox(height: 30),
 
-                    ///
-
-                    Container(
-                      color: Colors.grey,
-                      height: 200,
-                      width: 300,
-                      child: Center(
-                          child: Text(
-                        'الصورة تظهر هنا',
-                        style: GoogleFonts.aBeeZee(color: Colors.white),
-                      )),
-                      /// TO DO => Image Widget
-                      //child: Image.file(pickedFile),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    ///
-                    ElevatedButton(
-                      onPressed: () {
-                        print(_selectedItem);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade400,
-                        minimumSize: Size(350, 50),
-                      ),
-                      child: Text(
-                        'نشر',
-                        style: GoogleFonts.aBeeZee(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25),
-                      ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ]),
-          )),
+                const SizedBox(
+                  height: 40,
+                ),
+
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Post'),
+                  ),
+                ),
+
+              ],
+            ),
+          ),
         ));
+  }
+
+  File? _selectedImage;
+
+  Future<void> _getImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      if (pickedFile != null) {
+        _selectedImage = File(pickedFile.path);
+      }
+    });
   }
 }

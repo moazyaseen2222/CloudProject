@@ -6,18 +6,7 @@ import 'package:flutter/material.dart';
 class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-          leading: IconButton(onPressed: (){
-
-          }, icon: Icon(Icons.keyboard_backspace_rounded))
-        ,
-        title: const Text('الاشعارات'),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade400,
-      ),
-      body: ListView(
+    return  ListView(
         children: [
           _buildNotification(
             'اشعار جديد من محمد',
@@ -50,7 +39,7 @@ class NotificationScreen extends StatelessWidget {
             false,
           ),
         ],
-      ),
+
     );
   }
 

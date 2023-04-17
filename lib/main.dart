@@ -1,15 +1,26 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:palliative_care/ui/LoginScreen.dart';
-import 'package:palliative_care/ui/SignUp.dart';
-import 'package:palliative_care/ui/Who.dart';
+import 'package:palliative_care/ui/Authentication/LoginScreen.dart';
+import 'package:palliative_care/ui/Authentication/signUp_1.dart';
+import 'package:palliative_care/ui/Authentication/Who.dart';
 import 'package:palliative_care/ui/add_post.dart';
 import 'package:palliative_care/ui/categories.dart';
-import 'package:palliative_care/ui/chat.dart';
+import 'package:palliative_care/ui/Chat/chat.dart';
 import 'package:palliative_care/ui/home.dart';
+import 'package:palliative_care/ui/listSetting.dart';
+import 'package:palliative_care/ui/mainScreen.dart';
 import 'package:palliative_care/ui/notification.dart';
 import 'package:palliative_care/ui/profile.dart';
+import 'package:palliative_care/ui/settings.dart';
 
-void main() {
+import 'firebase_options.dart';
+import 'ui/Authentication/signUp_2.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -20,17 +31,37 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+        debugShowCheckedModeBanner: false,
+
+      title: 'Palliative Care',
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Lora',
+        primaryColor: const Color(0xFF66CA98),
+        scaffoldBackgroundColor: const Color(0xFFE5E5E5),
+        canvasColor: const Color(0xFFE5E5E5),
+      ),
+
       routes: {
         '/who':(context) => Who(),
         '/login':(context) => LoginScreen(),
         '/signup':(context) => SignUp(),
-        '/home':(context) => HomeScreen(),
+        '/signup2':(context) => SignUp_2(),
+        '/home':(context) => const HomeScreen(),
        // '/profile':(context) => DoctorProfilePage(),
-        '/chat':(context) => ChatScreen(),
+        '/chat':(context) => const ChatScreen(),
         '/notifications':(context) => NotificationScreen(),
+        '/categories':(context) => const Categories(),
+        '/add_post':(context) => const AddPost(),
+        '/settings':(context) => const Settings(),
+        '/profile':(context) => const ProfilePage(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT'),
+        '/list':(context) =>  listPage(),
+        '/':(context) => const MainScreen(),
+        '/chatScreen':(context) => const ChatScreen(),
       },
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen()/*(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT')*/,
+
+      initialRoute: '/signup',
+      /*(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT')*/
     );
   }
 }

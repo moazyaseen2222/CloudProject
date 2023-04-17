@@ -10,13 +10,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('الدردشة'),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade400,
-      ),
-      body: Padding(
+    return  Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
@@ -58,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
           ],
-        ),
+        
       ),
     );
   }

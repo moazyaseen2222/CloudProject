@@ -37,13 +37,13 @@ class _CommentFormState extends State<CommentForm> {
               controller: _commentController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter a comment';
+                  return '!ادخل تعليقا';
                 }
                 return null;
               },
               decoration: InputDecoration(
 
-                hintText: 'Enter your comment...',
+                hintText: 'اكتب تعليقا...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -55,7 +55,7 @@ class _CommentFormState extends State<CommentForm> {
           ElevatedButton(
               onPressed: _submitForm,
               style: ElevatedButton.styleFrom(
-                primary: Colors.blueGrey,
+                primary: Colors.green.shade400,
                 onPrimary: Colors.white,
                 minimumSize: const Size(50, 45),
                 shape: RoundedRectangleBorder(

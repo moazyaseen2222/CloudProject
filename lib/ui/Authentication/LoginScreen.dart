@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80.0,
                 ),
                 TextFormField(
@@ -44,15 +44,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (String value) {
                     print(value);
                   },
-                  decoration: InputDecoration(
-                    labelText: 'Email Address',
+                  decoration: const InputDecoration(
+                    labelText: 'البريد الالكتروني',
                     prefixIcon: Icon(
                       Icons.email,
                     ),
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 18.0,
                 ),
                 TextFormField(
@@ -65,8 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (String value) {
                     print(value);
                   },
-                  decoration: InputDecoration(
-                    labelText: 'Password',
+                  decoration: const InputDecoration(
+                    labelText: 'كلمة المرور',
                     prefixIcon: Icon(
                       Icons.lock,
                     ),
@@ -76,16 +76,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 Container(
                   width: double.infinity,
                   color: Colors.green.shade400,
                   child: MaterialButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Sign In',
+                    onPressed: () {
+
+                    },
+                    child: const Text(
+                      'تسجيل الدخول',
 
                       style: TextStyle(
                         color: Colors.white,
@@ -93,14 +95,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Don\'t have an account?',
+                    const Text(
+                      'ليس لديك حساب؟',
                     ),
                     TextButton(
                       onPressed: () {
@@ -111,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                       },
                       child: Text(
-                        'Register Now',
+                        'تسجيل جديد',
                         style: TextStyle( color: Colors.green.shade400,),
                       ),
                     ),

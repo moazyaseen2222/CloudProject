@@ -1,17 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:palliative_care/ui/Authentication/LoginScreen.dart';
 import 'package:palliative_care/ui/Authentication/signUp_1.dart';
 import 'package:palliative_care/ui/Authentication/Who.dart';
 import 'package:palliative_care/ui/add_post.dart';
-import 'package:palliative_care/ui/categories.dart';
+import 'package:palliative_care/ui/categories/alternatvie_medicine.dart';
+import 'package:palliative_care/ui/categories/cancer.dart';
+import 'package:palliative_care/ui/categories/categories.dart';
 import 'package:palliative_care/ui/Chat/chat.dart';
+import 'package:palliative_care/ui/categories/heart.dart';
+import 'package:palliative_care/ui/categories/mentalHealth.dart';
+import 'package:palliative_care/ui/categories/pysical_health.dart';
+import 'package:palliative_care/ui/categories/sokari.dart';
 import 'package:palliative_care/ui/home.dart';
 import 'package:palliative_care/ui/listSetting.dart';
 import 'package:palliative_care/ui/mainScreen.dart';
 import 'package:palliative_care/ui/notification.dart';
 import 'package:palliative_care/ui/profile.dart';
 import 'package:palliative_care/ui/settings.dart';
+import 'package:palliative_care/ui/test.dart';
 
 import 'firebase_options.dart';
 import 'ui/Authentication/signUp_2.dart';
@@ -30,7 +38,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  GetMaterialApp(
         debugShowCheckedModeBanner: false,
 
       title: 'Palliative Care',
@@ -58,9 +66,18 @@ class MyApp extends StatelessWidget {
         '/list':(context) =>  listPage(),
         '/':(context) => const MainScreen(),
         '/chatScreen':(context) => const ChatScreen(),
+
+        '/heartScreen':(context) => const HeartScreen(),
+        '/sokariScreen':(context) => const SokariScreen(),
+        '/pycsicalScreen':(context) => const PysicalHealth(),
+        '/alternativScreen':(context) => const AlternativeScreen(),
+        '/mentalScreen':(context) => const MentalHealth(),
+        '/cancerScreen':(context) => const CancerScreen(),
+        '/mainScreen':(context) => const MainScreen(),
+        '/test':(context) =>  Test(),
       },
 
-      initialRoute: '/signup',
+      initialRoute: '/mainScreen',
       /*(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT')*/
     );
   }

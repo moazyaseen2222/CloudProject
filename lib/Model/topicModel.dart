@@ -22,7 +22,7 @@ class TopicModel{
     data['id'] = id;
     data['title'] = title;
     if (post != null) {
-      data['post'] = post.toJson();
+      data['post'] = post.toMap();
     }
     return data;
   }

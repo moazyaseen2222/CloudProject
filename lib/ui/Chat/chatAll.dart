@@ -73,7 +73,7 @@ class UserChatScreen extends StatelessWidget {
           const Flexible(
             child: TextField(
               decoration: InputDecoration.collapsed(
-                  hintText: "Type your message..."),
+                  hintText: "ادخل رسالة..."),
             ),
           ),
           IconButton(

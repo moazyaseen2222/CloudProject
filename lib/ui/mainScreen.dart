@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:palliative_care/ui/add_post.dart';
 import 'package:palliative_care/ui/home.dart';
 import 'Chat/chatAll.dart';
-import 'categories.dart';
+import 'categories/categories.dart';
 import 'listSetting.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,13 +16,14 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
-  List<String> _title = ['الرئيسية', 'الاقسام', 'المحادثات', 'الاعدادات'];
+  List<String> _title = ['الرئيسية', 'الاقسام', 'المحادثات', 'الاعدادات','اضافة مقالة'];
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
     appBar:  AppBar(
-        title: Text(_title[_selectedIndex]),
+        title: Text(_title[_selectedIndex],style: GoogleFonts.aBeeZee(color: Colors.white),),
+        backgroundColor: Colors.green.shade400,
         centerTitle: true,
       ),
 
@@ -39,6 +42,7 @@ class _MainScreenState extends State<MainScreen> {
            // NotificationScreen(),
             UserChatScreen(uid: '51ds6f51ds6f51dsf', name: 'Mohannad',),
             listPage(),
+            AddPost(),
            // const ProfilePage(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT'),
           ],
         ),
@@ -78,6 +82,15 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Image(
               image: _selectedIndex == 3 ? AssetImage('images/icons/img_10.png') : AssetImage('images/icons/img_9.png'),
+              width: 25.0,
+              height: 25.0,
+              fit: BoxFit.contain,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: _selectedIndex == 4 ? AssetImage('images/icons/img_10.png') : AssetImage('images/icons/img_9.png'),
               width: 25.0,
               height: 25.0,
               fit: BoxFit.contain,

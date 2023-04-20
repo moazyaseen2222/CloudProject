@@ -8,19 +8,26 @@ class ProfilePage extends StatelessWidget {
   final String address;
   final String phoneNumber;
 
-  const ProfilePage({
-    required this.name,
-    required this.specialty,
-    required this.email,
-    required this.address,
-    required this.phoneNumber
-  });
-
-
+  const ProfilePage(
+      {required this.name,
+      required this.specialty,
+      required this.email,
+      required this.address,
+      required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'الصفحة الشخصية',
+          style: GoogleFonts.aBeeZee(color: Colors.white),
+        ),
+        backgroundColor: Colors.green.shade400,
+        centerTitle: true
+         ,
+      ),
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 20),
@@ -49,30 +56,47 @@ class ProfilePage extends StatelessWidget {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green.shade400,
-
-
             ),
             onPressed: () {},
-            child:
-                Text('مراسلة الطبيب',style: GoogleFonts.aBeeZee(fontSize: 17),),
-
-
+            child: Text(
+              'مراسلة الطبيب',
+              style: GoogleFonts.aBeeZee(fontSize: 17),
+            ),
           ),
           const SizedBox(height: 20),
           ListTile(
-            leading:  Icon(Icons.email,size: 30,color: Colors.black,),
-            title: Text(':  $email',style: GoogleFonts.aBeeZee(fontSize: 20),),
+            leading: Icon(
+              Icons.email,
+              size: 30,
+              color: Colors.black,
+            ),
+            title: Text(
+              ':  $email',
+              style: GoogleFonts.aBeeZee(fontSize: 20),
+            ),
           ),
           ListTile(
-            leading:  Icon(Icons.location_on,size: 30,color: Colors.red,),
-            title: Text(':  $address',style: GoogleFonts.aBeeZee(fontSize: 20),),
+            leading: Icon(
+              Icons.location_on,
+              size: 30,
+              color: Colors.red,
+            ),
+            title: Text(
+              ':  $address',
+              style: GoogleFonts.aBeeZee(fontSize: 20),
+            ),
           ),
           ListTile(
-            leading:  Icon(Icons.phone,size: 30,color: Colors.green.shade400,),
-            title: Text(':  $phoneNumber',style: GoogleFonts.aBeeZee(fontSize: 20)),
+            leading: Icon(
+              Icons.phone,
+              size: 30,
+              color: Colors.green.shade400,
+            ),
+            title: Text(':  $phoneNumber',
+                style: GoogleFonts.aBeeZee(fontSize: 20)),
           ),
         ],
-
+      ),
     );
   }
 }

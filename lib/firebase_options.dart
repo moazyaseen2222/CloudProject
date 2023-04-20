@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDasirrhEmpuEwVJxmLsjWjRvAMY-77mu8',
-    appId: '1:556918316594:web:f072258617c1ee709a262b',
-    messagingSenderId: '556918316594',
-    projectId: 'cloud-77cca',
-    authDomain: 'cloud-77cca.firebaseapp.com',
-    storageBucket: 'cloud-77cca.appspot.com',
-    measurementId: 'G-DEEDHEF20L',
+    apiKey: 'AIzaSyA-D_pFxsxzuCW-ioJvGvGbspqzdbBeFYk',
+    appId: '1:222974696650:web:51889fbf4d4f53871b6833',
+    messagingSenderId: '222974696650',
+    projectId: 'cloud-project-10e23',
+    authDomain: 'cloud-project-10e23.firebaseapp.com',
+    storageBucket: 'cloud-project-10e23.appspot.com',
+    measurementId: 'G-074X48TSKL',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB7eHmysf1uRdRDBzgiuNLFjqJ-fuofiec',
-    appId: '1:556918316594:android:b08877394adaec8f9a262b',
-    messagingSenderId: '556918316594',
-    projectId: 'cloud-77cca',
-    storageBucket: 'cloud-77cca.appspot.com',
+    apiKey: 'AIzaSyCFlbLNL_am_rwDLhEkN1wY0XImCtwysQI',
+    appId: '1:222974696650:android:d8c767f228f52f231b6833',
+    messagingSenderId: '222974696650',
+    projectId: 'cloud-project-10e23',
+    storageBucket: 'cloud-project-10e23.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCeenvfz1LG9bp45rr-q6eEK15fSigKA7k',
-    appId: '1:556918316594:ios:ac62a728555b57c59a262b',
-    messagingSenderId: '556918316594',
-    projectId: 'cloud-77cca',
-    storageBucket: 'cloud-77cca.appspot.com',
-    iosClientId: '556918316594-fqbgtfkjm95v9l9pmoo7bohkrhsi4esr.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDHV04USwn5aC-r0HxEGsKO9vgksvtHVpA',
+    appId: '1:222974696650:ios:acb9f7df37e8cd371b6833',
+    messagingSenderId: '222974696650',
+    projectId: 'cloud-project-10e23',
+    storageBucket: 'cloud-project-10e23.appspot.com',
+    iosClientId: '222974696650-f79101kso6d9bf15d37grem5fuggoeb5.apps.googleusercontent.com',
     iosBundleId: 'com.example.palliativeCare',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCeenvfz1LG9bp45rr-q6eEK15fSigKA7k',
-    appId: '1:556918316594:ios:ac62a728555b57c59a262b',
-    messagingSenderId: '556918316594',
-    projectId: 'cloud-77cca',
-    storageBucket: 'cloud-77cca.appspot.com',
-    iosClientId: '556918316594-fqbgtfkjm95v9l9pmoo7bohkrhsi4esr.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDHV04USwn5aC-r0HxEGsKO9vgksvtHVpA',
+    appId: '1:222974696650:ios:acb9f7df37e8cd371b6833',
+    messagingSenderId: '222974696650',
+    projectId: 'cloud-project-10e23',
+    storageBucket: 'cloud-project-10e23.appspot.com',
+    iosClientId: '222974696650-f79101kso6d9bf15d37grem5fuggoeb5.apps.googleusercontent.com',
     iosBundleId: 'com.example.palliativeCare',
   );
 }

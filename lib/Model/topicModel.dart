@@ -14,7 +14,7 @@ class TopicModel{
   TopicModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
-    post = (json['post'] != null ?  PostModel.fromJson(json['post']) : null)!;
+    post = (json['post'] != null ?  PostModel.fromSnapshot(json['post']) : null)!;
   }
 
   Map<String, dynamic> toJson() {

@@ -32,7 +32,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                _isExpanded ? 'Read Less' : 'Read More',
+                _isExpanded ? 'عرض اقل' : 'عرض المزيد',
                 style: const TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.bold,

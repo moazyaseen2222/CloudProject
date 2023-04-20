@@ -49,6 +49,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFE5E5E5),
         canvasColor: const Color(0xFFE5E5E5),
       ),
+      themeMode: ThemeMode.system,
+      textDirection: TextDirection.rtl,
 
       routes: {
         '/who':(context) => Who(),
@@ -66,7 +68,6 @@ class MyApp extends StatelessWidget {
         '/list':(context) =>  listPage(),
         '/':(context) => const MainScreen(),
         '/chatScreen':(context) => const ChatScreen(),
-
         '/heartScreen':(context) => const HeartScreen(),
         '/sokariScreen':(context) => const SokariScreen(),
         '/pycsicalScreen':(context) => const PysicalHealth(),

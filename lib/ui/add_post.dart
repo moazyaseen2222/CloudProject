@@ -159,6 +159,7 @@ class _AddPostState extends State<AddPost> {
                           1.toString(),
                           _selectedImage.toString(),
                           controller.selectedItem!,
+                            Timestamp.now()
                         ));
                         if (response.success == true) {
                           Get.snackbar('Firebase', 'Post has been published',

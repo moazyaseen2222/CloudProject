@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class PostModel {
   late String id;
   late String title;
@@ -5,6 +7,7 @@ class PostModel {
   late String category;
   late String userId;
   late String image;
+  late Timestamp createdAt ;
 
   PostModel(
      this.id,
@@ -13,35 +16,33 @@ class PostModel {
      this.userId,
      this.image,
      this.category,
+     this.createdAt,
   );
 
-  factory PostModel.fromJson(Map<String, dynamic> json) {
+  factory PostModel.fromSnapshot(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
     return PostModel(
-      json['id'],
-      json['title'],
-      json['body'],
-      json['userId'],
-      json['image'],
-      json['category'],
+      doc.id,
+      data['title'],
+      data['body'],
+      data['userId'],
+      data['image'],
+      data['category'],
+      data['createdAt']
     );
   }
 
    Map<String, dynamic> toMap() {
      final Map<String, dynamic> data = <String, dynamic>{};
-     data['id'] = this.id;
-     data['title'] = this.title;
-     data['body'] = this.body;
-     data['userId'] = this.userId;
-     data['image'] = this.image;
-     data['category'] = this.category;
+     data['id'] = id;
+     data['title'] = title;
+     data['body'] = body;
+     data['userId'] = userId;
+     data['image'] = image;
+     data['category'] = category;
+      data['createdAt'] = createdAt;
      return data;
-    // return {
-    //   'id': id,
-    //   'title': title,
-    //   'body': body,
-    //   'userId': userId,
-    //   'image': image,
-    // };
+
   }
 
 }

@@ -6,6 +6,18 @@ import 'package:palliative_care/Model/postModel.dart';
 FirebaseFirestore firebase = FirebaseFirestore.instance;
 
 class GetPostsController extends GetxController {
+  /// FOR ALL POSTS.
+  // Stream<QuerySnapshot<PostModel>> getAllPosts() async* {
+  //   yield* firebase
+  //       .collection('Posts')
+  //       .withConverter<PostModel>(
+  //         fromFirestore: (snapshot, options) =>
+  //             PostModel.fromJson(snapshot.data()!),
+  //         toFirestore: (value, options) => value.toMap(),
+  //       )
+  //       .snapshots();
+  // }
+
   /// FOR PHYSICAL POSTS SECTION.
 
   Stream<QuerySnapshot<PostModel>> getPhysicalPosts() async* {
@@ -14,7 +26,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'الصحة البدنية')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();
@@ -27,7 +39,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'القلب')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();
@@ -40,7 +52,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'السكري')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();
@@ -53,7 +65,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'الطب البديل')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();
@@ -66,7 +78,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'الصحة النفسية')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();
@@ -79,7 +91,7 @@ class GetPostsController extends GetxController {
         .where('category', isEqualTo: 'السرطان')
         .withConverter<PostModel>(
           fromFirestore: (snapshot, options) =>
-              PostModel.fromJson(snapshot.data()!),
+              PostModel.fromMap(snapshot.data()!),
           toFirestore: (value, options) => value.toMap(),
         )
         .snapshots();

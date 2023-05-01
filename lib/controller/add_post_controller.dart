@@ -38,14 +38,14 @@ class FbAuthControllerImp extends GetxController {
 
   Future<FbResponse> create(PostModel post) async {
     return await _firestore
-        .collection('Posts')
+        .collection('Post')
         .add(post.toMap())
         .then((value) => FbResponse(message: 'Success', success: true))
         .catchError((error) => FbResponse(message: 'Failed', success: false));
   }
 
   void getData() async {
-    final post = await _firestore.collection('posts').get();
+    final post = await _firestore.collection('Post').get();
     for (var data in post.docs) {
       print(data.data());
     }

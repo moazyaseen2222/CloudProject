@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
         '/test':(context) =>  Test(),
       },
 
-      initialRoute: '/mainScreen',
+      initialRoute: '/login',
       /*(name: 'Moaz',address: 'Gaza',email: 'MOAZ1111@gmail.com',phoneNumber: '05999999',specialty: 'IT')*/
     );
   }

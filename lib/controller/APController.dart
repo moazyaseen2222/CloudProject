@@ -18,6 +18,7 @@ class FbGetPostController extends GetxController {
 
 
   var posts = List<PostModel>.empty(growable: true).obs;
+  var Alternativeposts = List<PostModel>.empty(growable: true).obs;
   late List<UserModel> user = List<UserModel>.empty(growable: true).obs;
 
   @override
@@ -39,6 +40,20 @@ class FbGetPostController extends GetxController {
 
     update();
   }
+  /// NEW FUNCTION
+  // void getAlternativePosts() async {
+  //   QuerySnapshot snapshot =
+  //   await FirebaseFirestore.instance.collection('Posts').where('category', isEqualTo: 'الطب البديل').get().then((value) {
+  //     value.docs.map((doc) => getPostAuth(id: PostModel.fromSnapshot(doc).id));
+  //     return value;
+  //   });
+  //   List<PostModel> alternativePosts =
+  //   snapshot.docs.map((doc) => PostModel.fromSnapshot(doc)).toList();
+  //   Alternativeposts.assignAll(alternativePosts);
+  //
+  //   update();
+  // }
+  ///
 
   getPostAuth({required id}) async {
     DocumentSnapshot<Map<String, dynamic>> snapshot =
@@ -62,7 +77,7 @@ class FbGetPostController extends GetxController {
 
   Stream<int> commentCount(String postId) {
     return FirebaseFirestore.instance
-        .collection('posts')
+        .collection('Post')
         .doc(postId)
         .collection('comments')
         .snapshots()
@@ -72,7 +87,7 @@ class FbGetPostController extends GetxController {
 
   Future<void> removeLike(String postId) {
     return FirebaseFirestore.instance
-        .collection('posts')
+        .collection('Posts')
         .doc(postId)
         .update({'likes': FieldValue.increment(-1)}).catchError(
             (error) => print('Failed to remove like: $error'));

@@ -11,6 +11,7 @@ import 'package:palliative_care/ui/mainScreen.dart';
 import '../Firebase/auth_firebase.dart';
 import '../Firebase/fb_response.dart';
 import '../Model/postModel.dart';
+import '../Model/userModel.dart';
 import '../controller/add_post_controller.dart';
 
 class AddPost extends StatefulWidget {
@@ -153,7 +154,7 @@ class _AddPostState extends State<AddPost> {
                     child: ElevatedButton(
                       onPressed: () async {
                         FbResponse response = await controller.create(PostModel(
-                          1.toString(),
+                            1.toString() ,
                           controller.title.text,
                           controller.subject.text,
                           1.toString(),
